@@ -36,10 +36,10 @@ export default function Carousel({ images }) {
   }, [images.length]);
 
   return (
-    <div className="relative w-full max-w-lg mx-auto">
-      <div className="overflow-hidden relative">
+    <div className="relative w-full max-w-2xl mx-auto rounded-lg">
+      <div className="overflow-hidden relative rounded-lg">
         <div
-          className={`flex transition-transform duration-1000 ease-in-out transform ${
+          className={`flex transition-transform duration-1000 ease-in-out transform rounded-lg ${
             isAnimating ? 'translate-x-0' : ''
           }`}
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
