@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/pages/homePage';
+import SearchPage from './components/pages/searchPage';
+import Header from './components/header';
+/*
+import AboutPage from './AboutPage';
+import ProductsPage from './ProductsPage';
+import NotFoundPage from './NotFoundPage';
+*/
 function App() {
+  const navItems = [
+    { href: "/search", label: "Productos" },
+    { href: "/categories", label: "Categorias" },
+    { href: "/about", label: "Nosotros" },
+    { href: "/contact", label: "Contacto" },
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header siteTitle="Si Bonitas" navItems={navItems} />
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Routes>
+    </Router>
+    </>
   );
 }
-
+/*
+<Route path="/about" element={<AboutPage />} />
+<Route path="/products" element={<ProductsPage />} />
+<Route path="*" element={<NotFoundPage />} />
+*/
 export default App;
